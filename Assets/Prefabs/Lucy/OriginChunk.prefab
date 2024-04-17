@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7510514058554415432}
   - component: {fileID: 3515734021520727976}
   - component: {fileID: 1755630886205388391}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 60e7e3ce92576054a8e626ff829618fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1760218511505828003}
   - component: {fileID: 2257694104196498457}
   - component: {fileID: 7321703343465376703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Collider
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 8817445581042349632}
   - component: {fileID: 5704062634594554451}
   - component: {fileID: 3692801230334818550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 60e7e3ce92576054a8e626ff829618fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3854168519132792752}
   - component: {fileID: 1546365341245034189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OriginChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 60e7e3ce92576054a8e626ff829618fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
