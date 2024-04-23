@@ -11,30 +11,34 @@ public class ShapeShiftInteractor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.tag.Equals("Gary"))
         {
             Debug.Log($"Collided");
-            Destroy(other.gameObject);
-            player.SetActive(false);
+            //Destroy(other.gameObject);
             gary.SetActive(true);
+            player.SetActive(false);
+            patrick.SetActive(false);
             Invoke("RevertTransformation", transformDuration);
         }
 
         if (other.gameObject.tag.Equals("Patrick"))
         {
             Debug.Log($"Collided");
-            Destroy(other.gameObject);
-            player.SetActive(false);
+            //Destroy(other.gameObject);
             patrick.SetActive(true);
+            player.SetActive(false);
+            gary.SetActive(false);
             Invoke("RevertTransformation", transformDuration);
 
         }
     }
     void RevertTransformation()
     {
+        player.SetActive(true);
         patrick.SetActive(false);
         gary.SetActive(false);
-        player.SetActive(true);
+        
     }
 
 }
