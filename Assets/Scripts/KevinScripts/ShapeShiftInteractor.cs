@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.CullingGroup;
 
 public class ShapeShiftInteractor : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class ShapeShiftInteractor : MonoBehaviour
     [SerializeField] private GameObject patrick;
     [SerializeField] private GameObject player;
     [SerializeField] private float transformDuration = 10.0f;
+
+    public Action<string> ShapeChanged;
 
     void OnTriggerEnter(Collider other)
     {
@@ -19,6 +23,8 @@ public class ShapeShiftInteractor : MonoBehaviour
             gary.SetActive(true);
             player.SetActive(false);
             patrick.SetActive(false);
+
+            ShapeChanged("Gary");
             Invoke("RevertTransformation", transformDuration);
         }
 
@@ -29,6 +35,8 @@ public class ShapeShiftInteractor : MonoBehaviour
             patrick.SetActive(true);
             player.SetActive(false);
             gary.SetActive(false);
+
+            ShapeChanged("Patrick");
             Invoke("RevertTransformation", transformDuration);
 
         }
@@ -38,7 +46,9 @@ public class ShapeShiftInteractor : MonoBehaviour
         player.SetActive(true);
         patrick.SetActive(false);
         gary.SetActive(false);
-        
+
+        ShapeChanged("Sponge");
+
     }
 
 }
