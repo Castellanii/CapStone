@@ -6,12 +6,10 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
-    //public Action<int> OnScoreUpdated;
-    [SerializeField] public int coinValue;
     public int score {get; private set; }
 
 
-    private float gamingTime;
+    private float scoreFloat;
 
     public static ScoreManager instance;
 
@@ -35,17 +33,17 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         //OnScoreUpdated?.Invoke(score);
         UIManager.instance.UpdateScoreUI(score);
-        gamingTime = 0f;
+        scoreFloat = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gamingTime += Time.deltaTime;
+        scoreFloat += Time.deltaTime;
 
-        if (score != (int)Mathf.Floor(gamingTime))
+        if (score != (int)Mathf.Floor(scoreFloat))
         {
-            score = (int)Mathf.Floor(gamingTime);
+            score = (int)Mathf.Floor(scoreFloat);
             //Debug.Log(score);
             UIManager.instance.UpdateScoreUI(score);
             //OnScoreUpdated?.Invoke(score);
@@ -53,9 +51,10 @@ public class ScoreManager : MonoBehaviour
         
     }
 
-    public void CoinToScore()
+    public void AddScore(int addValue)
     {
-        score += coinValue;
-        UIManager.instance.UpdateScoreUI(score);
+        Debug.Log("the score is added");
+        scoreFloat += addValue;  
     }
+
 }

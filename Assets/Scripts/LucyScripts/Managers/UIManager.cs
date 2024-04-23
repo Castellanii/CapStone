@@ -1,10 +1,14 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
+//TODO: after hamburger is made, connect event to EnableScoreUI
 public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreTxt;
+
+    [SerializeField] Transform hamburgurUI;
 
 
     
@@ -25,9 +29,27 @@ public class UIManager : MonoBehaviour
     }
 
 
+    private void OnEnable()
+    {
+        hamburgurUI.gameObject.GetComponent<Button>().onClick.AddListener(DisableHamburgerUI);
+    }
+
     public void UpdateScoreUI(int score)
     {
         //Debug.Log("update score text: " + score);
         scoreTxt.text = $"SCORE: {score}";
     }
+
+    public void EnableHamburgerUI()
+    {
+        hamburgurUI.gameObject.SetActive(true);
+    }
+
+    public void DisableHamburgerUI()
+    {
+        hamburgurUI.gameObject.SetActive(false);
+    }
+
+
+
 }
