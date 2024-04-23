@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: UnderwaterEffects
-  m_Shader: {fileID: 4800000, guid: 49f56094dc36d404c9900cd243cc3f22, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8810c8e2a9675dd41a0a163207d6d0ad, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
