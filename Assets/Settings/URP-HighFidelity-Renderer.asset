@@ -1,5 +1,27 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7523667746028874121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff14a3240da049049b50e6ee03331335, type: 3}
+  m_Name: Underwater Effects
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    material: {fileID: 2100000, guid: a9c7c098fabaddb41ac8e65c145025f2, type: 2}
+    renderPassEvent: 400
+    color: {r: 0.054901965, g: 0.27058825, b: 0.20000002, a: 1}
+    distance: 8
+    alpha: 0.2
+    refraction: 0.2
+    normalmap: {fileID: 2800000, guid: 7423b4f6ab34f2647b5550827e82f712, type: 3}
+    UV: {x: 1, y: 1, z: 0.2, w: 0.1}
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,9 +75,9 @@ MonoBehaviour:
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  - {fileID: 9048546054403122060}
   - {fileID: 7926394339673167785}
-  m_RendererFeatureMap: adc0de57c6d2eee58ce375fab1e4927da9d7e2f5a735006e
+  - {fileID: -7523667746028874121}
+  m_RendererFeatureMap: adc0de57c6d2eee5a9d7e2f5a735006e7796e20d0c909697
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
