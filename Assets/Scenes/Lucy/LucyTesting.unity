@@ -1030,7 +1030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ca3da00c7bbee49b11162edcb88a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectCoinAudio: {fileID: 1129862548}
 --- !u!82 &1129862548
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1918,7 +1917,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnyConv_com__spongebob_bind (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: 1d030592e0acb1b4fba80aa1c250ac1d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 1d030592e0acb1b4fba80aa1c250ac1d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
