@@ -6,9 +6,11 @@ public class BreakableWall : MonoBehaviour
 {
     public Hamburger hamburger;
     private Animator wallAnimation;
+    [SerializeField] private Collider wallCollider;
     private void Awake()
     {
         wallAnimation = GetComponent<Animator>();
+        wallCollider = GetComponent<Collider>();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,7 +18,8 @@ public class BreakableWall : MonoBehaviour
         {
             Debug.Log($"Wall is breaking");
             wallAnimation.SetTrigger("Breaking");
-            Destroy(this.gameObject, 5.0f);
+            wallCollider.enabled = false;
+            Destroy(this.gameObject, 2.0f);
         }
     }
 }
