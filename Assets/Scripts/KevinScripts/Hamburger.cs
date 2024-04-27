@@ -11,7 +11,7 @@ public class Hamburger : MonoBehaviour, IPickable
     [SerializeField] private float materialDuration;
     private Renderer renderer;
 
-    public bool canBreak = false;
+    [SerializeField] private bool canBreak = false;
 
     void Start()
     {

@@ -14,7 +14,7 @@ public class BreakableWall : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && hamburger.canBreak)
+        if (collision.gameObject.CompareTag("Player"))// && hamburger.canBreak)
         {
             Debug.Log($"Wall is breaking");
             wallAnimation.SetTrigger("Breaking");

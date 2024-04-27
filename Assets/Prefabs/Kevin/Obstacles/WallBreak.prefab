@@ -8644,7 +8644,7 @@ GameObject:
   - component: {fileID: 7015173626024377264}
   - component: {fileID: 480371825926057766}
   - component: {fileID: 6537210715444573406}
-  - component: {fileID: 4753169623147558161}
+  - component: {fileID: 6805425779160400759}
   m_Layer: 0
   m_Name: WallBreak
   m_TagString: Untagged
@@ -9136,7 +9136,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4753169623147558161
+--- !u!114 &6805425779160400759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
