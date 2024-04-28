@@ -7,6 +7,9 @@ TagManager:
   - Collider
   - Gary
   - Patrick
+  - Coin
+  - Obstacles
+  - Curve
   layers:
   - Default
   - TransparentFX

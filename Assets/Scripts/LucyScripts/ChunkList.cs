@@ -39,7 +39,9 @@ public class ChunkList : MonoBehaviour
         //put all chunks in queue
         for (int i = 0; i < 5; i++)
         {
+            
             tempPos.z = i * chunkLength;
+            Debug.Log(tempPos);
 
             Transform newChunk = GenerateNewChunk(tempPos);
             if (i == 4)
@@ -71,7 +73,7 @@ public class ChunkList : MonoBehaviour
         GameObject newChunk = Instantiate(ChunkPrefab, this.transform);
         newChunk.transform.localPosition = newPos;
 
-        newChunk.GetComponent<Chunk>().GenerateFood();
+        //newChunk.GetComponent<Chunk>().GenerateFood();
         newChunk.GetComponent<Chunk>().GenerateCoinPrefabGroup();
         
 
