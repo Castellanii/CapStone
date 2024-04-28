@@ -9,6 +9,7 @@ TagManager:
   - Patrick
   - Coin
   - Obstacles
+  - Curve
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,12 @@ guid: fb95746b19a174247a326239d9d9d166
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SaltPackage
+    second: {fileID: 2100000, guid: 6a258d7af3636cd49851f56b8687a2aa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

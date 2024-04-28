@@ -11,6 +11,14 @@ public class ShapeShiftInteractor : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float transformDuration = 10.0f;
 
+
+    public enum Shape
+    {
+        Sponge, Patrick, Gary
+    }
+
+    public Shape playerShape { get; private set; } 
+
     public Action<string> ShapeChanged;
 
     void OnTriggerEnter(Collider other)
@@ -25,6 +33,7 @@ public class ShapeShiftInteractor : MonoBehaviour
             patrick.SetActive(false);
 
             ShapeChanged("Gary");
+            playerShape = Shape.Gary;
             Invoke("RevertTransformation", transformDuration);
         }
 
@@ -37,6 +46,7 @@ public class ShapeShiftInteractor : MonoBehaviour
             gary.SetActive(false);
 
             ShapeChanged("Patrick");
+            playerShape = Shape.Patrick;
             Invoke("RevertTransformation", transformDuration);
 
         }
@@ -48,6 +58,7 @@ public class ShapeShiftInteractor : MonoBehaviour
         gary.SetActive(false);
 
         ShapeChanged("Sponge");
+        playerShape = Shape.Sponge;
 
     }
 
