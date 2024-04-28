@@ -8,9 +8,11 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreTxt;
 
-    [SerializeField] Transform hamburgurUI;
+    [SerializeField] Transform hamburgerUI;
 
+    [SerializeField] PlayerCondition playerCondition;
 
+    [SerializeField] ChunkList chunkList;
     
     public static UIManager instance;
 
@@ -26,12 +28,13 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Singleton();
+        playerCondition.EnableHamburgerUI += EnableHamburgerUI;
     }
 
 
     private void OnEnable()
     {
-        hamburgurUI.gameObject.GetComponent<Button>().onClick.AddListener(DisableHamburgerUI);
+        hamburgerUI.gameObject.GetComponent<Button>().onClick.AddListener(DisableHamburgerUI);
     }
 
     public void UpdateScoreUI(int score)
@@ -42,12 +45,17 @@ public class UIManager : MonoBehaviour
 
     public void EnableHamburgerUI()
     {
-        hamburgurUI.gameObject.SetActive(true);
+        hamburgerUI.gameObject.SetActive(true);
     }
 
     public void DisableHamburgerUI()
     {
-        hamburgurUI.gameObject.SetActive(false);
+        if (hamburgerUI.gameObject.activeSelf == false) return;
+        hamburgerUI.gameObject.SetActive(false);
+        Debug.Log("activate hamburger mode");
+        playerCondition.ActivateHamburgerMode();
+        chunkList.HamburgerSpawned(false);
+
     }
 
 

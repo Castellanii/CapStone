@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("hit the player");
+            Debug.Log("obstacle(tree) hit the player");
         }
     }
 }

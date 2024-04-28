@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int addValue)
     {
-        Debug.Log("the score is added");
+        //Debug.Log("the score is added");
         scoreFloat += addValue;  
     }
 

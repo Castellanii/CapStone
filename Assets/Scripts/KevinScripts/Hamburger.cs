@@ -5,33 +5,50 @@ using UnityEngine;
 public class Hamburger : MonoBehaviour, IPickable
 {
     [SerializeField] private Material breakMaterial;
-    [SerializeField] private Material origMaterial;
+    //[SerializeField] private Material origMaterial;
 
-    [SerializeField] private GameObject player;
     [SerializeField] private float materialDuration;
-    private Renderer renderer;
+    //private Renderer renderer;
 
-    [SerializeField] private bool canBreak = false;
+    //the hamburger will be destroyed. the status should store in player
+    //[SerializeField] private bool canBreak = false;
 
+    private PlayerCondition playerCondition;
+
+    private void Awake()
+    {
+        playerCondition = GameObject.FindGameObjectWithTag("PlayerMain").GetComponent<PlayerCondition>();
+    }
     void Start()
     {
-        renderer = player.GetComponent<Renderer>();
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))//other is the current player model, not the renderer
         {
-            renderer.material = breakMaterial;
-            canBreak = true;
-            Invoke("RevertMaterial", materialDuration);
+
+            //renderer.material = breakMaterial;
+
+            //playerCondition.SetBreakable(true, materialDuration);
+
+            //Invoke("RevertMaterial", materialDuration);
+
+            playerCondition.HitHamburgerPickUp(breakMaterial, materialDuration);
+            Destroy(this.gameObject);
         }
     }
+    //The hamburger will be destroyed at the same time when the chunck destroyed
+    //Revert doesn't work here
+    //Also the hamburger should be triggered by pressing burger UI
+    //Gonna write inside playerCondition script instead
 
-    private void RevertMaterial()
-    {
-        renderer.material = origMaterial;
-        canBreak = false;
-    }
+
+    //private void RevertMaterial()
+    //{
+    //    renderer = playerCondition.playerRendererDic[playerCondition.currShape];
+    //    renderer.material = origMaterial;
+    //    playerCondition.SetBreakable(false);
+    //}
 
 
 }

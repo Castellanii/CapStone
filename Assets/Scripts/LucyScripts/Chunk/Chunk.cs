@@ -1,7 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
+
+public enum PrefabList
+{
+    CoinPrefab,
+    BreakWallPrefab,
+    ShapePrefab
+};
 public class Chunk : MonoBehaviour
 {
     //inside item list, the position of the group
@@ -11,13 +20,18 @@ public class Chunk : MonoBehaviour
 
     //e: x: -0.7
 
+    [Header("Prefab")]
     [SerializeField] private Transform CoinPrefabList;
+    [SerializeField] private Transform BreakWallPrefab;
     [SerializeField] private Transform FoodList;
 
+    [Header("Possibility")]
     [SerializeField] private float SaltPossibility = 0.7f;
+    [SerializeField] private float ObstacleInCoinPossibility = 0.5f;
+    [Header("Coin, Breakable, Shape (int)")]
+    [SerializeField] List<int> PrefabPossibilityInput;
 
-    [SerializeField] private float ObstaclePossibility = 0.5f;
-
+    private List<int> PrefabPossibility;
     private int PrefabCount;
 
     private float[] lanePositionList;
@@ -27,7 +41,52 @@ public class Chunk : MonoBehaviour
     private int laneNum;
     private int prefabNum;
 
-    
+
+    private PlayerCondition playerCondition;
+
+    public void GeneratePrefabGroup()
+    {
+        //0: coin, 1: breakable, 2:shapeWall
+        if (!this.GetComponentInParent<ChunkList>().HamburgerSpawned()
+            ||playerCondition.Exhausted)
+        {
+            PrefabPossibility[1] = 0;
+            Debug.Log("hamburger not spawned");
+            //UnitPrefabPossibility();
+        }
+        else
+        {
+            PrefabPossibility[1] = PrefabPossibilityInput[1];
+        }
+
+        int rand = Random.Range(0, PrefabPossibility.Sum());
+        //Debug.Log($"current rand: {rand}");
+        if (rand < PrefabPossibility[0])
+        {
+            //Generate Coin
+            Debug.Log("Generate Coin");
+            GenerateCoinPrefabGroup();
+        }
+        else if (rand < PrefabPossibility[0] + PrefabPossibility[1])
+        {
+            playerCondition.Exhausted = true;
+            //Generate Breakable wall
+            Debug.Log("Generate Breakable wall");
+            GenerateBreakablePrefabGroup();
+        }
+        else
+        {
+            //Generate Shape wall
+            Debug.Log("Generate Shape wall");
+        }
+
+    }
+
+    public void GenerateBreakablePrefabGroup()
+    {
+
+        BreakWallPrefab.gameObject.SetActive(true);
+    }
     public void GenerateCoinPrefabGroup()
     {
         laneNum = Random.Range(0, 3);
@@ -43,7 +102,7 @@ public class Chunk : MonoBehaviour
 
         //enable that prefab group with updated position
         CoinPrefabList.GetChild(prefabNum).gameObject.SetActive(true);
-        CoinPrefabList.GetChild(prefabNum).GetComponent<CoinGroup>().GenerateObstacles(ObstaclePossibility);
+        CoinPrefabList.GetChild(prefabNum).GetComponent<CoinGroup>().GenerateObstacles(ObstacleInCoinPossibility);
 
     }
 
@@ -60,13 +119,14 @@ public class Chunk : MonoBehaviour
 
             FoodList.GetChild(1).gameObject.SetActive(true);
         }
-        else
+        else//Hamburger
         {
             Vector3 temp = FoodList.GetChild(0).localPosition;
             temp.z = foodPositionList[Random.Range(0, 3)];
             FoodList.GetChild(0).localPosition = temp;
 
             FoodList.GetChild(0).gameObject.SetActive(true);
+            this.GetComponentInParent<ChunkList>().HamburgerSpawned(true);
         }
 
 
@@ -79,9 +139,32 @@ public class Chunk : MonoBehaviour
         InitialFoodPositionList();
 
         PrefabCount = CoinPrefabList.childCount;
+        playerCondition = GameObject.FindGameObjectWithTag("PlayerMain").GetComponent<PlayerCondition>();
+
+        PrefabPossibility = new List<int>(PrefabPossibilityInput);
+        //UnitPrefabPossibility();
+
     }
 
-    
+    private void Start()
+    {
+        
+    }
+
+    /// <summary>
+    /// The total prefab possibility change to 1 based on input/modify.
+    /// </summary>
+    //private void UnitPrefabPossibility()
+    //{
+    //    float sum = PrefabPossibility.Sum();
+    //    Debug.Log($"sum: {sum}");
+    //    for (int i = 0; i < PrefabPossibility.Count; i++)
+    //    {
+    //        PrefabPossibility[i] /= sum;
+    //        Debug.Log(PrefabPossibility[i]);
+    //    }
+    //}
+
     private void InitialFoodPositionList()
     {
         foodPositionList = new float[3];
