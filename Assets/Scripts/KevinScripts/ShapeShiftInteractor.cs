@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.CullingGroup;
 
+public enum Shape
+{
+    Sponge, Patrick, Gary
+}
+
 public class ShapeShiftInteractor : MonoBehaviour
 {
     [SerializeField] private GameObject gary;
@@ -11,41 +16,36 @@ public class ShapeShiftInteractor : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float transformDuration = 10.0f;
 
-
-    public enum Shape
-    {
-        Sponge, Patrick, Gary
-    }
-
     public Shape playerShape { get; private set; } 
 
-    public Action<string> ShapeChanged;
+    public Action<Shape> ShapeChanged;
+
 
     void OnTriggerEnter(Collider other)
     {
         
         if (other.gameObject.tag.Equals("Gary"))
         {
-            Debug.Log($"Collided");
-            //Destroy(other.gameObject);
+            //Debug.Log($"Collided");
+            Destroy(other.gameObject);
             gary.SetActive(true);
             player.SetActive(false);
             patrick.SetActive(false);
 
-            ShapeChanged("Gary");
+            ShapeChanged(Shape.Gary);
             playerShape = Shape.Gary;
             Invoke("RevertTransformation", transformDuration);
         }
 
         if (other.gameObject.tag.Equals("Patrick"))
         {
-            Debug.Log($"Collided");
-            //Destroy(other.gameObject);
+            //Debug.Log($"Collided");
+            Destroy(other.gameObject);
             patrick.SetActive(true);
             player.SetActive(false);
             gary.SetActive(false);
 
-            ShapeChanged("Patrick");
+            ShapeChanged(Shape.Patrick);
             playerShape = Shape.Patrick;
             Invoke("RevertTransformation", transformDuration);
 
@@ -57,7 +57,7 @@ public class ShapeShiftInteractor : MonoBehaviour
         patrick.SetActive(false);
         gary.SetActive(false);
 
-        ShapeChanged("Sponge");
+        ShapeChanged(Shape.Sponge);
         playerShape = Shape.Sponge;
 
     }

@@ -30,7 +30,7 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("collect coin");
+            //Debug.Log("collect coin");
             //coinUpdated?.Invoke(coinValue);
             ScoreManager.instance.AddScore(coinValue);
             AudioManager.instance.PlayCollectCoinAudio();

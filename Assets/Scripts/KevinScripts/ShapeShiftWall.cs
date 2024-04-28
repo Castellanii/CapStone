@@ -13,19 +13,19 @@ public class ShapeShiftWall : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (other.transform.GetComponent<ShapeShiftInteractor>().playerShape)
-            {
-                //ToDo pass through wall
-                Debug.Log($"You passed through the wall");
-            } 
-        }
-        else
-        {
-            //ToDo Lose Life
-            Debug.Log($"You hit the wall");
-        }
+        //if (other.gameObject.CompareTag("Player"))
+        //{
+        //    if (other.transform.GetComponent<ShapeShiftInteractor>().playerShape)
+        //    {
+        //        //ToDo pass through wall
+        //        Debug.Log($"You passed through the wall");
+        //    } 
+        //}
+        //else
+        //{
+        //    //ToDo Lose Life
+        //    Debug.Log($"You hit the wall");
+        //}
     }
 
 

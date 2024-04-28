@@ -1,25 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BreakableWall : MonoBehaviour
 {
-    public Hamburger hamburger;
     private Animator wallAnimation;
     [SerializeField] private Collider wallCollider;
+    private PlayerCondition playerCondition;
+
     private void Awake()
     {
         wallAnimation = GetComponent<Animator>();
         wallCollider = GetComponent<Collider>();
+        playerCondition = GameObject.FindGameObjectWithTag("PlayerMain").GetComponent<PlayerCondition>();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))// && hamburger.canBreak)
+        
+        if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log($"Wall is breaking");
-            wallAnimation.SetTrigger("Breaking");
-            wallCollider.enabled = false;
-            Destroy(this.gameObject, 2.0f);
+            playerCondition.Exhausted = false;
+
+            Debug.Log("breakable: " + playerCondition.canBreak);
+            if (playerCondition.canBreak)
+            {
+                Debug.Log($"Wall is breaking");
+                wallAnimation.SetTrigger("Breaking");
+                wallCollider.enabled = false;
+                Destroy(this.gameObject, 2.0f);
+            }
+            else
+            {
+                Debug.Log("Player is damaged by the breaking wall");
+            }
+            
         }
     }
 }
