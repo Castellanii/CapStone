@@ -26,20 +26,19 @@ public class PlayerJump : MonoBehaviour
         shapeShiftInteractor.ShapeChanged += changeAnimator;
     }
 
-    public void changeAnimator(string character)
+    public void changeAnimator(Shape character)
     {
-        Debug.Log(character);
-        if (character == "Sponge")
+        if (character == Shape.Sponge)
         {
             animatorIndex = 0;
             animated = true;
         }
-        else if (character == "Patrick")
+        else if (character == Shape.Patrick)
         {
             animatorIndex = 1;
             animated = true;
         }
-        else//Gary
+        else if (character == Shape.Gary)
         {
             animated = false;
         }
@@ -56,12 +55,12 @@ public class PlayerJump : MonoBehaviour
     public void Jump()
     {
         if (!isGrounded) return;
-        Debug.Log("jump");
+        //Debug.Log("jump");
 
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
         if (!animated) return;
-        Debug.Log(animatorIndex);
+        //Debug.Log(animatorIndex);
         animators[animatorIndex].SetTrigger("Jump");
         
     }

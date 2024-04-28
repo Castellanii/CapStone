@@ -16,6 +16,9 @@ public class ChunkList : MonoBehaviour
 
     public static ChunkList instance;
 
+
+    //Count for hamburger
+    private bool hamburgerSpawned;
     void Singleton()
     {
         if (instance != null && instance != this)
@@ -33,6 +36,7 @@ public class ChunkList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hamburgerSpawned = false;
 
         Vector3 tempPos = Vector3.zero;
 
@@ -72,7 +76,9 @@ public class ChunkList : MonoBehaviour
         newChunk.transform.localPosition = newPos;
 
         newChunk.GetComponent<Chunk>().GenerateFood();
-        newChunk.GetComponent<Chunk>().GenerateCoinPrefabGroup();
+
+
+        newChunk.GetComponent<Chunk>().GeneratePrefabGroup();
         
 
         Chunk.Enqueue(newChunk);
@@ -80,7 +86,14 @@ public class ChunkList : MonoBehaviour
         
     }
 
-
+    public void HamburgerSpawned(bool value)
+    {
+        hamburgerSpawned = value; 
+    }
+    public bool HamburgerSpawned()
+    {
+        return hamburgerSpawned;
+    }
 
 
     // Update is called once per frame
