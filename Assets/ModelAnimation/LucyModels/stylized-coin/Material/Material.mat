@@ -136,14 +136,14 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Sideways_Curve: 0
+    - _Sideways_Curve: -0.0013581904
     - _Smoothness: 0.25
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Tile_Strength: 0
+    - _Tile_Strength: 1
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZTest: 4
