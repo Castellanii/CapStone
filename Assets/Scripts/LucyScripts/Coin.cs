@@ -11,9 +11,6 @@ public class Coin : MonoBehaviour
     [SerializeField] private float rotateSpeed = 10;
     [SerializeField] private int coinValue = 10;
 
-    //can't use action because the coin is not prefab. instantiate
-    //public Action<int> coinUpdated;
-
 
     private void Awake()
     {
@@ -31,7 +28,6 @@ public class Coin : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //Debug.Log("collect coin");
-            //coinUpdated?.Invoke(coinValue);
             ScoreManager.instance.AddScore(coinValue);
             AudioManager.instance.PlayCollectCoinAudio();
 
