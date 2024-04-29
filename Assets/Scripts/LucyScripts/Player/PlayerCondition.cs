@@ -23,6 +23,9 @@ public class PlayerCondition : MonoBehaviour
     //Following line Limit only 1 breakable wall in the scene, because player only can have 1 hamburger
     public bool Exhausted { get;  set; }
 
+    private bool isRunning = false;
+    private Coroutine revertMaterial;
+
     private Shape poweredShape;
     private Material[] origMaterials;
     private Material breakMaterial;
@@ -89,12 +92,19 @@ public class PlayerCondition : MonoBehaviour
 
     public void ActivateHamburgerMode()
     {
-        UpdateHamburgerVar();
+        if (!isRunning)
+        {
+            UpdateHamburgerVar();
 
-        SetBreakable(true);
+            SetBreakable(true);
+            revertMaterial = StartCoroutine(RevertMaterial(timeDuration));
+        }
+        else
+        {
+            StopCoroutine(revertMaterial);
+            revertMaterial = StartCoroutine(RevertMaterial(timeDuration));
+        }
 
-        StartCoroutine(RevertMaterial(timeDuration));
-        Invoke("RevertMaterial", timeDuration);
     }
 
     private void UpdateHamburgerVar()
@@ -115,11 +125,13 @@ public class PlayerCondition : MonoBehaviour
 
     IEnumerator RevertMaterial(float timeDuration)
     {
+        isRunning = true;
         yield return new WaitForSeconds(timeDuration);
-
+        isRunning = false;
         Debug.Log("revertMaterial");
         playerRendererDic[poweredShape].materials = origMaterials;
         SetBreakable(false);
+
        
     }
 }

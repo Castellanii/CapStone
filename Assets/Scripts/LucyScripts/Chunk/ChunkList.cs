@@ -19,6 +19,7 @@ public class ChunkList : MonoBehaviour
 
     //Count for hamburger
     private bool hamburgerSpawned;
+    private bool firstChunk;
     void Singleton()
     {
         if (instance != null && instance != this)
@@ -40,12 +41,14 @@ public class ChunkList : MonoBehaviour
 
         Vector3 tempPos = Vector3.zero;
 
+        firstChunk = true;
         //put all chunks in queue
         for (int i = 0; i < 5; i++)
         {
             tempPos.z = i * chunkLength;
-
+            
             Transform newChunk = GenerateNewChunk(tempPos);
+            firstChunk = false;
             if (i == 4)
             {
                 lastChunk = newChunk.transform;
@@ -75,15 +78,15 @@ public class ChunkList : MonoBehaviour
         GameObject newChunk = Instantiate(ChunkPrefab, this.transform);
         newChunk.transform.localPosition = newPos;
 
-        newChunk.GetComponent<Chunk>().GenerateFood();
-
-
-        newChunk.GetComponent<Chunk>().GeneratePrefabGroup();
+        if (!firstChunk)
+        {
+            newChunk.GetComponent<Chunk>().GenerateFood();
+            newChunk.GetComponent<Chunk>().GeneratePrefabGroup();
+        }
         
 
         Chunk.Enqueue(newChunk);
         return newChunk.transform;
-        
     }
 
     public void HamburgerSpawned(bool value)

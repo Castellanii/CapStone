@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     
     public static UIManager instance;
 
+
+
     void Singleton()
     {
         if (instance != null && instance != this)
@@ -43,16 +45,17 @@ public class UIManager : MonoBehaviour
         scoreTxt.text = $"SCORE: {score}";
     }
 
-    public void EnableHamburgerUI()
+    private void EnableHamburgerUI()
     {
+        hamburgerUI.transform.GetComponent<Button>().interactable = true;
         hamburgerUI.gameObject.SetActive(true);
     }
 
     public void DisableHamburgerUI()
     {
-        if (hamburgerUI.gameObject.activeSelf == false) return;
+        hamburgerUI.transform.GetComponent<Button>().interactable = false;
         hamburgerUI.gameObject.SetActive(false);
-        Debug.Log("activate hamburger mode");
+        //Debug.Log("activate hamburger mode");
         playerCondition.ActivateHamburgerMode();
         chunkList.HamburgerSpawned(false);
 

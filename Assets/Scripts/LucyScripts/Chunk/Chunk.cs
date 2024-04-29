@@ -21,16 +21,20 @@ public class Chunk : MonoBehaviour
     //e: x: -0.7
 
     [Header("Prefab")]
+    [SerializeField] private Transform FoodList;
     [SerializeField] private Transform CoinPrefabList;
     [SerializeField] private Transform BreakWallPrefab;
-    [SerializeField] private Transform FoodList;
+    [SerializeField] private Transform ShapeWallPrefab;
+    
 
     [Header("Possibility")]
-    [SerializeField] private float SaltPossibility = 0.7f;
-    [SerializeField] private float ObstacleInCoinPossibility = 0.5f;
+    [SerializeField] private float SaltPossibility;
+    [SerializeField] private float ObstacleInCoinPossibility;
     [Header("Coin, Breakable, Shape (int)")]
     [SerializeField] List<int> PrefabPossibilityInput;
 
+
+   
     private List<int> PrefabPossibility;
     private int PrefabCount;
 
@@ -51,8 +55,7 @@ public class Chunk : MonoBehaviour
             ||playerCondition.Exhausted)
         {
             PrefabPossibility[1] = 0;
-            Debug.Log("hamburger not spawned");
-            //UnitPrefabPossibility();
+            //Debug.Log("hamburger not spawned");
         }
         else
         {
@@ -64,27 +67,33 @@ public class Chunk : MonoBehaviour
         if (rand < PrefabPossibility[0])
         {
             //Generate Coin
-            Debug.Log("Generate Coin");
+            //Debug.Log("Generate Coin");
             GenerateCoinPrefabGroup();
         }
         else if (rand < PrefabPossibility[0] + PrefabPossibility[1])
         {
             playerCondition.Exhausted = true;
             //Generate Breakable wall
-            Debug.Log("Generate Breakable wall");
+            //Debug.Log("Generate Breakable wall");
             GenerateBreakablePrefabGroup();
         }
         else
         {
             //Generate Shape wall
-            Debug.Log("Generate Shape wall");
+            //Debug.Log("Generate Shape wall");
+            GenerateShapePrefabGroup();
         }
 
     }
 
+    public void GenerateShapePrefabGroup()
+    {
+        ShapeWallPrefab.gameObject.SetActive(true);
+        ShapeWallPrefab.GetComponent<ShapeShiftWallprefabGroup>().GenerateShapeShiftWallprefabGroup(lanePositionList);
+    }
+
     public void GenerateBreakablePrefabGroup()
     {
-
         BreakWallPrefab.gameObject.SetActive(true);
     }
     public void GenerateCoinPrefabGroup()
@@ -102,14 +111,14 @@ public class Chunk : MonoBehaviour
 
         //enable that prefab group with updated position
         CoinPrefabList.GetChild(prefabNum).gameObject.SetActive(true);
-        CoinPrefabList.GetChild(prefabNum).GetComponent<CoinGroup>().GenerateObstacles(ObstacleInCoinPossibility);
+        CoinPrefabList.GetChild(prefabNum).GetComponent<CoinObstacles>().GenerateObstacles(ObstacleInCoinPossibility);
 
     }
 
     public void GenerateFood()
     {
         //z = -0.2 | 0.5 | 1.2
-        bool isSalt = Random.Range(0f, 1f) <= 0.8f ? true: false;
+        bool isSalt = Random.Range(0f, 1f) <= SaltPossibility ? true: false;
         if (isSalt)
         {
 
@@ -142,7 +151,6 @@ public class Chunk : MonoBehaviour
         playerCondition = GameObject.FindGameObjectWithTag("PlayerMain").GetComponent<PlayerCondition>();
 
         PrefabPossibility = new List<int>(PrefabPossibilityInput);
-        //UnitPrefabPossibility();
 
     }
 
@@ -150,20 +158,6 @@ public class Chunk : MonoBehaviour
     {
         
     }
-
-    /// <summary>
-    /// The total prefab possibility change to 1 based on input/modify.
-    /// </summary>
-    //private void UnitPrefabPossibility()
-    //{
-    //    float sum = PrefabPossibility.Sum();
-    //    Debug.Log($"sum: {sum}");
-    //    for (int i = 0; i < PrefabPossibility.Count; i++)
-    //    {
-    //        PrefabPossibility[i] /= sum;
-    //        Debug.Log(PrefabPossibility[i]);
-    //    }
-    //}
 
     private void InitialFoodPositionList()
     {
