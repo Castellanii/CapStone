@@ -640,7 +640,7 @@ MonoBehaviour:
   ShapeWallPrefab: {fileID: 3576980805705408021}
   SaltPossibility: 0.5
   ObstacleInCoinPossibility: 0.5
-  PrefabPossibilityInput: 000000000000000001000000
+  PrefabPossibilityInput: 020000000100000001000000
 --- !u!1 &773918316523730179
 GameObject:
   m_ObjectHideFlags: 0
