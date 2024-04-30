@@ -159,7 +159,7 @@ MonoBehaviour:
   gary: {fileID: 7277914975886629975}
   patrick: {fileID: 838297140756582861}
   player: {fileID: 2937335452595158969}
-  transformDuration: 5
+  transformDuration: 0.3
 --- !u!114 &9129318100002341284
 MonoBehaviour:
   m_ObjectHideFlags: 0

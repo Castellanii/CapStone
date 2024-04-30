@@ -113,8 +113,13 @@ public class PlayerCondition : MonoBehaviour
         origMaterials = playerRendererDic[poweredShape].materials;
 
         //Solve for multiple materials case
-        Material[] newMat = new Material[1];
-        newMat[0] = breakMaterial;
+        int value = playerRendererDic[poweredShape].materials.Length;
+        Material[] newMat = new Material[value];
+        for (int i = 0; i < value; i++)
+        {
+            newMat[i] = breakMaterial;
+        }
+         
         playerRendererDic[poweredShape].materials = newMat;
     }
 
