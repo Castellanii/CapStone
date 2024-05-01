@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    private LivesCounter playerLives;
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        playerLives = GameObject.FindObjectOfType<LivesCounter>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("obstacle(tree) hit the player");
+            playerLives.LoseLife();
         }
     }
 }
