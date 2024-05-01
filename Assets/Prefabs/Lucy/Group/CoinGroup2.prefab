@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5489478802867650156
 Transform:
   m_ObjectHideFlags: 0
@@ -82,6 +82,8 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 3483235979204343430}
   - {fileID: 8925704370372782419}
+  origPossibility: 0.2
+  acceleration: 0.01
 --- !u!1 &2675861280184915151
 GameObject:
   m_ObjectHideFlags: 0
