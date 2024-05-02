@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinGroup : MonoBehaviour
+public class CoinObstacles : MonoBehaviour
 {
     [SerializeField] private List<GameObject> Obstacles;
 

@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class ShapeShiftWall : MonoBehaviour
 {
-    //[SerializeField] private Collider shapeShiftCollider;
-    [SerializeField] private Collider wallCollider;
+    private Collider wallCollider;
+    private Shape TargetShape;
 
+    private PlayerCondition playerCondition;
     private void Awake()
     {
         wallCollider = GetComponent<Collider>();
+        playerCondition = GameObject.FindGameObjectWithTag("PlayerMain").GetComponent<PlayerCondition>();
+    }
+
+    public void UpdateTargetShape(Shape _targetShape)
+    {
+        
+        TargetShape = _targetShape;
     }
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.CompareTag("Player"))
-        //{
-        //    if (other.transform.GetComponent<ShapeShiftInteractor>().playerShape)
-        //    {
-        //        //ToDo pass through wall
-        //        Debug.Log($"You passed through the wall");
-        //    } 
-        //}
-        //else
-        //{
-        //    //ToDo Lose Life
-        //    Debug.Log($"You hit the wall");
-        //}
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log(TargetShape.ToString());
+            if (playerCondition.currShape == TargetShape)
+            {
+                //ToDo pass through wall
+                Debug.Log($"You passed through the {TargetShape.ToString()} with {playerCondition.currShape.ToString()}");
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log($"You failed passed through the {TargetShape.ToString()} with {playerCondition.currShape.ToString()}");
+                Debug.Log("Damage the player");
+            }
+        }
     }
 
 

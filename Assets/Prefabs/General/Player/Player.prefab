@@ -159,7 +159,7 @@ MonoBehaviour:
   gary: {fileID: 7277914975886629975}
   patrick: {fileID: 838297140756582861}
   player: {fileID: 2937335452595158969}
-  transformDuration: 5
+  transformDuration: 0.3
 --- !u!114 &9129318100002341284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,9 +209,19 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 92222d4b7ba04f648ba1667ef19932c7, type: 2}
   - {fileID: 2100000, guid: 932f0ff56317e2b4ca987df18d789a07, type: 2}
   - {fileID: 2100000, guid: a3c2f991d379d764da34629796787557, type: 2}
+  - {fileID: 2100000, guid: bb05eb22d507cbe4d9db814d6f4f5266, type: 2}
+  - {fileID: 2100000, guid: 6a258d7af3636cd49851f56b8687a2aa, type: 2}
+  - {fileID: 2100000, guid: 7134b5925b6f83c42bd5ff0ccda5aed4, type: 2}
+  - {fileID: 2100000, guid: a6e77b3636d4c314b8c8c546bcdab30b, type: 2}
+  - {fileID: 2100000, guid: a2189b4bbeef956449f6084abfc75d12, type: 2}
+  - {fileID: 2100000, guid: 1064a07e6e54b62428f56ba3c965c75f, type: 2}
+  - {fileID: 2100000, guid: d05e85673b5438d4282673e003560011, type: 2}
+  - {fileID: 2100000, guid: b9645c4afda7b5b4e9e7c9cf0d6015e1, type: 2}
   targetValue: 0
   currentValue: 0
   lerpTime: 5
+  backwardsTarget: 0
+  backwardsCurrent: 0
 --- !u!1 &2913619666550947298
 GameObject:
   m_ObjectHideFlags: 0

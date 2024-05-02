@@ -940,6 +940,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4528102490373843114, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: growSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100259690168976765, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100259690168976765, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800003606249073681, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: transformDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1514
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.18660001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9764692
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2156568
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 24.908
+      objectReference: {fileID: 0}
     - target: {fileID: 8432407043635097233, guid: af5addb13e1cda54a9e53f14812f2f81,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1743,7 +1788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8b3430080e6a545936ab37065a663f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hamburger: {fileID: 0}
   wallCollider: {fileID: 0}
 --- !u!1 &2130811375
 GameObject:
