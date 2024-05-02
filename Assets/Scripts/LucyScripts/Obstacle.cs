@@ -23,6 +23,7 @@ public class Obstacle : MonoBehaviour
         {
             Debug.Log("obstacle(tree) hit the player");
             playerLives.LoseLife();
+            Destroy(this.gameObject);
         }
     }
 }

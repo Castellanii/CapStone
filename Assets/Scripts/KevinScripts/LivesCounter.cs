@@ -35,9 +35,9 @@ public class LivesCounter : MonoBehaviour
         AdjustImageWidth();
     }
 
-    public void LoseLife(int num = 1)
+    public void LoseLife()
     {
-        NumofLives -= num;
+        NumofLives -= 1;
     }
 
     private void AdjustImageWidth()
