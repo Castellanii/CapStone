@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
   - {fileID: 4341493924908881875}
+  origPossibility: 0.2
+  acceleration: 0.01
 --- !u!1 &4668576591816917651
 GameObject:
   m_ObjectHideFlags: 0

@@ -111,8 +111,8 @@ public class Chunk : MonoBehaviour
 
         //enable that prefab group with updated position
         CoinPrefabList.GetChild(prefabNum).gameObject.SetActive(true);
-        CoinPrefabList.GetChild(prefabNum).GetComponent<CoinObstacles>().GenerateObstacles(ObstacleInCoinPossibility);
-
+        //CoinPrefabList.GetChild(prefabNum).GetComponent<CoinObstacles>().GenerateObstacles(ObstacleInCoinPossibility);
+        CoinPrefabList.GetChild(prefabNum).GetComponent<CoinObstacles>().GenerateObstacles();
     }
 
     public void GenerateFood()

@@ -82,6 +82,8 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 3483235979204343430}
   - {fileID: 8925704370372782419}
+  origPossibility: 0.2
+  acceleration: 0.01
 --- !u!1 &2675861280184915151
 GameObject:
   m_ObjectHideFlags: 0
