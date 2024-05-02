@@ -551,7 +551,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912997303}
-  - component: {fileID: 912997304}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -575,21 +574,6 @@ Transform:
   - {fileID: 937427110}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &912997304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912997302}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eedc4aee73f2a9d47b4738029e56963f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initMoveSpeed: 0
-  moveAcceleration: 0
-  maxMoveSpeed: 0
 --- !u!1 &937427109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1020,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4528102490373843114, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: grow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528102490373843114, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: maxGrowSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432407043635097233, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432407043635097233, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432407043635097233, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8432407043635097233, guid: af5addb13e1cda54a9e53f14812f2f81,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1205,9 +1214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGrowSpeed: 0.005
-  playerGrowAcceleration: 0.01
-  chunkMoveSpeed: 0
-  chunkmoveSpeedAcceleration: 0.01
+  playerGrowAcceleration: 0.003
+  chunkMoveSpeed: 5
+  chunkmoveSpeedAcceleration: 0.017
   playerScale: {fileID: 1245827599}
   environmentMovement: {fileID: 5142579195474643853, guid: 46d970df4d5c0c14f9b19c5e8e53f66f,
     type: 3}

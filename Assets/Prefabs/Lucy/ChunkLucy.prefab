@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initMoveSpeed: 5
-  moveAcceleration: 0.01
+  moveAcceleration: 0.017
   maxMoveSpeed: 10
 --- !u!114 &1950065552106586958
 MonoBehaviour:
@@ -640,7 +640,7 @@ MonoBehaviour:
   CoinPrefabList: {fileID: 7809329278434375028}
   BreakWallPrefab: {fileID: 7308069227875733505}
   ShapeWallPrefab: {fileID: 3576980805705408021}
-  SaltPossibility: 0.8
+  SaltPossibility: 0.75
   ObstacleInCoinPossibility: 0.5
   PrefabPossibilityInput: 020000000100000001000000
 --- !u!1 &773918316523730179

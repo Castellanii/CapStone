@@ -8,9 +8,9 @@ public class DifficultyManager : MonoBehaviour
 {
     [Header("Variables")]
     [Range(0.005f, 0.05f)]
-    [SerializeField] private float playerGrowSpeed;//0.01
-    [Range(0.01f, 0.01f)]
-    [SerializeField] private float playerGrowAcceleration;//0.01
+    [SerializeField] private float playerGrowSpeed;//0.005
+    [Range(0.005f, 0.01f)]
+    [SerializeField] private float playerGrowAcceleration;//0.005
 
     [SerializeField] private float chunkMoveSpeed = 5;//5
     [SerializeField] private float chunkmoveSpeedAcceleration = 0.01f;//0.01

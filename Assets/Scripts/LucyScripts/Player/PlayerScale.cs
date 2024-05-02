@@ -13,6 +13,7 @@ public class PlayerScale : MonoBehaviour
     //private int divider = 100;
     private float currGrowSpeed;
     [SerializeField] private bool grow;
+    [SerializeField] private float maxGrowSpeed = 0.5f;
 
     public Vector3 originScale {get; private set;}
     private Vector3 currScale;
@@ -33,14 +34,15 @@ public class PlayerScale : MonoBehaviour
     {
         if (grow)
         {
+            
+
             if ((float)Math.Round(currGrowSpeed, 2) != (float)Math.Round(origGrowSpeed + acceleration * DifficultyManager.instance.RunningTime(), 2))
             
                 Debug.Log("Player Grow Speed: " + currGrowSpeed.ToString("F2"));
-            
 
+            if (currGrowSpeed != maxGrowSpeed)
             currGrowSpeed = origGrowSpeed + acceleration * DifficultyManager.instance.RunningTime();
-
-            
+                currGrowSpeed = currGrowSpeed >= maxGrowSpeed?maxGrowSpeed: currGrowSpeed;
 
             currScale = transform.localScale;
             currScale.x += currGrowSpeed * Time.deltaTime;
