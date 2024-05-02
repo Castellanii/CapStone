@@ -92,12 +92,15 @@ public class PlayerCondition : MonoBehaviour
 
     public void ActivateHamburgerMode()
     {
+
+
         if (!isRunning)
         {
             UpdateHamburgerVar();
 
             SetBreakable(true);
             revertMaterial = StartCoroutine(RevertMaterial(timeDuration));
+            //Invoke("RevertMaterial", timeDuration);   
         }
         else
         {
@@ -132,6 +135,7 @@ public class PlayerCondition : MonoBehaviour
     {
         isRunning = true;
         yield return new WaitForSeconds(timeDuration);
+        
         isRunning = false;
         Debug.Log("revertMaterial");
         playerRendererDic[poweredShape].materials = origMaterials;

@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] PlayerCondition playerCondition;
 
     [SerializeField] ChunkList chunkList;
+
+    [SerializeField] LivesCounter playerLives;
     
     public static UIManager instance;
 
@@ -37,6 +39,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         hamburgerUI.gameObject.GetComponent<Button>().onClick.AddListener(DisableHamburgerUI);
+        playerLives.OnDeath += OnDeath;
     }
 
     public void UpdateScoreUI(int score)
@@ -59,6 +62,12 @@ public class UIManager : MonoBehaviour
         playerCondition.ActivateHamburgerMode();
         chunkList.HamburgerSpawned(false);
 
+    }
+
+    void OnDeath()
+    {
+        Debug.Log($"Player is Dead");
+        //TODO add gameover screen
     }
 
 
