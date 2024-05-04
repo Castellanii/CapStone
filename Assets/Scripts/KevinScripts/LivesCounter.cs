@@ -14,6 +14,8 @@ public class LivesCounter : MonoBehaviour
     private RectTransform rect;
 
     public Action OnDeath;
+    public Action OnDamage;
+
     public int NumofLives
     {
         get => numOfLives;
@@ -38,6 +40,12 @@ public class LivesCounter : MonoBehaviour
     public void LoseLife()
     {
         NumofLives -= 1;
+
+        if (NumofLives > 0)
+        {
+            OnDamage?.Invoke();
+        }
+
     }
 
     private void AdjustImageWidth()

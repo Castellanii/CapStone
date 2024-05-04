@@ -19,7 +19,7 @@ public class EnvironmentMovement : MonoBehaviour
     {
         //Debug
         if ((float)Math.Round(currMoveSpeed, 2) != (float)Math.Round((initMoveSpeed + DifficultyManager.instance.RunningTime() * moveAcceleration), 2))
-            Debug.Log("chunkMoveSpeed: " + (currMoveSpeed).ToString("F2"));
+            //Debug.Log("chunkMoveSpeed: " + (currMoveSpeed).ToString("F2"));
 
             //Update currSpeed
             currMoveSpeed = initMoveSpeed + DifficultyManager.instance.RunningTime() * moveAcceleration;

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5800003606249073681}
   - component: {fileID: 9129318100002341284}
   - component: {fileID: 8675400053012778267}
+  - component: {fileID: 2980015975739828875}
   m_Layer: 0
   m_Name: Player
   m_TagString: PlayerMain
@@ -115,8 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8474dd45af6fa746adbfa5089e3e8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growSpeed: 0.05
   grow: 1
+  maxGrowSpeed: 0.5
 --- !u!54 &3637082943849341352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -222,6 +223,22 @@ MonoBehaviour:
   lerpTime: 5
   backwardsTarget: 0
   backwardsCurrent: 0
+--- !u!114 &2980015975739828875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756842332875175419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1c1106ef2a1be488b94de72f5e0e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageColor: {r: 1, g: 0, b: 0, a: 0}
+  damageDuration: 1
+  colorFrequency: 3
+  livesCounter: {fileID: 0}
 --- !u!1 &2913619666550947298
 GameObject:
   m_ObjectHideFlags: 0
