@@ -16,9 +16,7 @@ public class PlayerDamage : MonoBehaviour
     private Material currMaterial;
     public static PlayerDamage instance;
 
-    private 
-
-    void Singleton()
+    private void Singleton()
     {
         if (instance != null && instance != this)
         {

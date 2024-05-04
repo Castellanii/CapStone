@@ -8,12 +8,10 @@ public class ShapeShiftWall : MonoBehaviour
     private Shape TargetShape;
 
     private PlayerCondition playerCondition;
-    private LivesCounter playerLives;
     private void Awake()
     {
         wallCollider = GetComponent<Collider>();
         playerCondition = GameObject.FindGameObjectWithTag("PlayerMain").GetComponent<PlayerCondition>();
-        playerLives = GameObject.FindObjectOfType<LivesCounter>();
     }
 
     public void UpdateTargetShape(Shape _targetShape)
@@ -36,7 +34,8 @@ public class ShapeShiftWall : MonoBehaviour
             {
                 Debug.Log($"You failed passed through the {TargetShape.ToString()} with {playerCondition.currShape.ToString()}");
                 Debug.Log("Damage the player");
-                playerLives.LoseLife();
+                LivesCounter.Instance.LoseLife();
+
             }
         }
     }

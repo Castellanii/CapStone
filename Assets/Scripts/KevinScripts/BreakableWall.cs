@@ -8,13 +8,12 @@ public class BreakableWall : MonoBehaviour
     private Animator wallAnimation;
     [SerializeField] private Collider wallCollider;
     private PlayerCondition playerCondition;
-    private LivesCounter playerLives;
+    
 
     private void Awake()
     {
         wallAnimation = GetComponent<Animator>();
         wallCollider = GetComponent<Collider>();
-        playerLives = GameObject.FindObjectOfType<LivesCounter>();
         playerCondition = GameObject.FindGameObjectWithTag("PlayerMain").GetComponent<PlayerCondition>();
     }
     private void OnTriggerEnter(Collider other)
@@ -35,7 +34,7 @@ public class BreakableWall : MonoBehaviour
             else
             {
                 Debug.Log("Player is damaged by the breaking wall");
-                playerLives.LoseLife();
+                LivesCounter.Instance.LoseLife();
             }
             
         }
