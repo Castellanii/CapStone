@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] ChunkList chunkList;
 
     [SerializeField] LivesCounter playerLives;
+
+    [SerializeField] ParticleSystem explosionEffect;
+
+    [SerializeField] GameObject explosion;
     
     public static UIManager instance;
 
@@ -33,6 +37,8 @@ public class UIManager : MonoBehaviour
     {
         Singleton();
         playerCondition.EnableHamburgerUI += EnableHamburgerUI;
+        explosion.SetActive(false);
+        explosionEffect.Stop();
     }
 
 
@@ -67,6 +73,9 @@ public class UIManager : MonoBehaviour
     void OnDeath()
     {
         Debug.Log($"Player is Dead");
+        playerCondition.GetPlayerRenderer().enabled = false;
+        explosion.SetActive(true);
+        explosionEffect.Play();
         //TODO add gameover screen
     }
 
