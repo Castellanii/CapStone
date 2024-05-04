@@ -1119,21 +1119,6 @@ PrefabInstance:
       propertyPath: livesCounter
       value: 
       objectReference: {fileID: 219762423}
-    - target: {fileID: 2980015975739828875, guid: af5addb13e1cda54a9e53f14812f2f81,
-        type: 3}
-      propertyPath: damageColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980015975739828875, guid: af5addb13e1cda54a9e53f14812f2f81,
-        type: 3}
-      propertyPath: damageColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980015975739828875, guid: af5addb13e1cda54a9e53f14812f2f81,
-        type: 3}
-      propertyPath: damageColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8432407043635097233, guid: af5addb13e1cda54a9e53f14812f2f81,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grow: 1
   maxGrowSpeed: 0.5
+  HighestScale: 8
 --- !u!54 &3637082943849341352
 Rigidbody:
   m_ObjectHideFlags: 0
