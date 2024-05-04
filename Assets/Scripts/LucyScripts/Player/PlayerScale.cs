@@ -16,6 +16,9 @@ public class PlayerScale : MonoBehaviour
     [SerializeField] private float maxGrowSpeed = 0.5f;
     [SerializeField] private float HighestScale = 8.0f;
 
+    [SerializeField] private ParticleSystem explosionEffect;
+    [SerializeField] private GameObject explosion;
+
     public Vector3 originScale {get; private set;}
     public float highestScale { get; private set; }
     private Vector3 currScale;
@@ -25,6 +28,8 @@ public class PlayerScale : MonoBehaviour
     {
         originScale = transform.localScale;
         highestScale = HighestScale;
+        explosion.SetActive(false);
+        explosionEffect.Stop();
     }
 
     private void Start()
@@ -67,6 +72,8 @@ public class PlayerScale : MonoBehaviour
         if (currScale.x >= highestScale)
         {
             LivesCounter.Instance.LoseLife(0);
+            explosion.SetActive(true);
+            explosionEffect.Play();
         }
         
     }

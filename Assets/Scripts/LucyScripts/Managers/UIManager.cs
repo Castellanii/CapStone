@@ -67,6 +67,7 @@ public class UIManager : MonoBehaviour
     void OnDeath()
     {
         Debug.Log($"Player is Dead");
+        playerCondition.GetPlayerRenderer().enabled = false;
         //TODO add gameover screen
     }
 
