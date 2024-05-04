@@ -14,21 +14,30 @@ public class PlayerScale : MonoBehaviour
     private float currGrowSpeed;
     [SerializeField] private bool grow;
     [SerializeField] private float maxGrowSpeed = 0.5f;
+    [SerializeField] private float HighestScale = 8.0f;
 
     public Vector3 originScale {get; private set;}
+    public float highestScale { get; private set; }
     private Vector3 currScale;
 
     // Start is called before the first frame update
     void Awake()
     {
         originScale = transform.localScale;
+        highestScale = HighestScale;
     }
 
     private void Start()
     {
         currGrowSpeed = origGrowSpeed;
+        
+
     }
 
+    public Vector3 GetCurrScale()
+    {
+        return currScale;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -50,6 +59,14 @@ public class PlayerScale : MonoBehaviour
             currScale.z += currGrowSpeed * Time.deltaTime;
 
             transform.localScale = currScale;
+        }
+
+
+
+        //Check Die condition
+        if (currScale.x >= highestScale)
+        {
+            LivesCounter.Instance.LoseLife(0);
         }
         
     }

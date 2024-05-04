@@ -16,6 +16,17 @@ public class LivesCounter : MonoBehaviour
     public Action OnDeath;
     public Action OnDamage;
 
+    public static LivesCounter Instance;
+
+    void Singleton()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
+
     public int NumofLives
     {
         get => numOfLives;
@@ -33,6 +44,7 @@ public class LivesCounter : MonoBehaviour
 
     private void Awake()
     {
+        Singleton();
         rect = transform as RectTransform;
         AdjustImageWidth();
     }
@@ -46,6 +58,10 @@ public class LivesCounter : MonoBehaviour
             OnDamage?.Invoke();
         }
 
+    }
+    public void LoseLife(int _NumofLives)
+    {
+        NumofLives = _NumofLives;
     }
 
     private void AdjustImageWidth()
