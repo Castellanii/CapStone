@@ -37,7 +37,6 @@ public class ShapeShiftWall : MonoBehaviour
                 Debug.Log($"You failed passed through the {TargetShape.ToString()} with {playerCondition.currShape.ToString()}");
                 Debug.Log("Damage the player");
                 playerLives.LoseLife();
-
             }
         }
     }
