@@ -1030,6 +1030,31 @@ PrefabInstance:
       propertyPath: maxGrowSpeed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1399
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1693
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9787363
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.20512277
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862069598541566579, guid: af5addb13e1cda54a9e53f14812f2f81,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 23.673
+      objectReference: {fileID: 0}
     - target: {fileID: 8432407043635097233, guid: af5addb13e1cda54a9e53f14812f2f81,
         type: 3}
       propertyPath: m_LocalScale.x
