@@ -18,6 +18,7 @@ public class LivesCounter : MonoBehaviour
 
     public static LivesCounter Instance;
 
+    float delay = 0; 
     void Singleton()
     {
         if (Instance != null && Instance != this)
@@ -26,7 +27,6 @@ public class LivesCounter : MonoBehaviour
         }
         Instance = this;
     }
-
     public int NumofLives
     {
         get => numOfLives;
@@ -35,11 +35,29 @@ public class LivesCounter : MonoBehaviour
             numOfLives = Mathf.Clamp(value, 0, maxLives);
             if (value <= 0)
             {
-                OnDeath();
+                Debug.Log("delay" + delay);
+                if (delay != 0)
+                {
+                    Invoke("OnDeathAction", delay);
+                }
+                else
+                {
+                    OnDeathAction();
+                }
             }
             
             AdjustImageWidth();
         }
+    }
+
+    public void OnDeathAction()
+    {
+        OnDeath();
+        GameManager.Instance.PlayerDead();
+    }
+    public int CurrLives()
+    {
+        return numOfLives;
     }
 
     private void Awake()
@@ -59,8 +77,9 @@ public class LivesCounter : MonoBehaviour
         }
 
     }
-    public void LoseLife(int _NumofLives)
+    public void LoseLife(int _NumofLives, float _delay)
     {
+        delay = _delay;
         NumofLives = _NumofLives;
     }
 

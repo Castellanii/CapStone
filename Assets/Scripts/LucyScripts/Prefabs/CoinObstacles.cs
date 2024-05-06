@@ -35,7 +35,7 @@ public class CoinObstacles : MonoBehaviour
             currPossibility = 1;
         }
 
-        Debug.Log("coinObstacle possibility: " + currPossibility.ToString("F2"));
+        //Debug.Log("coinObstacle possibility: " + currPossibility.ToString("F2"));
 
 
         for (int i = 0; i < Obstacles.Count; i++)

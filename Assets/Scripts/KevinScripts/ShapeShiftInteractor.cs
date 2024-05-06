@@ -14,7 +14,7 @@ public class ShapeShiftInteractor : MonoBehaviour
     [SerializeField] private GameObject gary;
     [SerializeField] private GameObject patrick;
     [SerializeField] private GameObject player;
-    [SerializeField] private float transformDuration;
+    [SerializeField] private float transformDuration = 0.3f;
 
     public Shape playerShape { get; private set; } 
 

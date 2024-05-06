@@ -23,7 +23,7 @@ public class ShapeShiftWall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(TargetShape.ToString());
+            //Debug.Log(TargetShape.ToString());
             if (playerCondition.currShape == TargetShape)
             {
                 //ToDo pass through wall
@@ -33,8 +33,9 @@ public class ShapeShiftWall : MonoBehaviour
             else
             {
                 Debug.Log($"You failed passed through the {TargetShape.ToString()} with {playerCondition.currShape.ToString()}");
-                Debug.Log("Damage the player");
+                
                 LivesCounter.Instance.LoseLife();
+                Destroy(this.gameObject);
 
             }
         }

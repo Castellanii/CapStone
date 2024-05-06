@@ -23,6 +23,8 @@ public class PlayerScale : MonoBehaviour
     public float highestScale { get; private set; }
     private Vector3 currScale;
 
+    private bool pause;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -46,13 +48,13 @@ public class PlayerScale : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (pause) return;
         if (grow)
         {
-            
-
+            //Debug lines
             if ((float)Math.Round(currGrowSpeed, 2) != (float)Math.Round(origGrowSpeed + acceleration * DifficultyManager.instance.RunningTime(), 2))
             
-                Debug.Log("Player Grow Speed: " + currGrowSpeed.ToString("F2"));
+                //Debug.Log("Player Grow Speed: " + currGrowSpeed.ToString("F2"));
 
             if (currGrowSpeed != maxGrowSpeed)
             currGrowSpeed = origGrowSpeed + acceleration * DifficultyManager.instance.RunningTime();
@@ -69,11 +71,14 @@ public class PlayerScale : MonoBehaviour
 
 
         //Check Die condition
-        if (currScale.x >= highestScale)
+        if (currScale.x >= highestScale && LivesCounter.Instance.CurrLives() > 0)
         {
-            LivesCounter.Instance.LoseLife(0);
+            pause = true;
             explosion.SetActive(true);
             explosionEffect.Play();
+            
+            LivesCounter.Instance.LoseLife(0, explosionEffect.main.duration + 0.3f);
+            
         }
         
     }

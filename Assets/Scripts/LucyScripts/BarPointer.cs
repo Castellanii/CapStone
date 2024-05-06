@@ -19,6 +19,13 @@ public class BarPointer : MonoBehaviour
 
     private float currPointY;
     private Vector3 currVector;
+
+
+    private bool pause;
+    private void OnEnable()
+    {
+        LivesCounter.Instance.OnDeath += pausePointer;
+    }
     private void Start()
     {
         lowestScale = playerScale.originScale.x;
@@ -31,6 +38,7 @@ public class BarPointer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (pause) return;
         //Debug.Log($"({playerScale.GetCurrScale().x - lowestScale} / {rangeScale}) *  ({HighPointY} - {LowPointY})+ {LowPointY}");
         currPointY = ((playerScale.GetCurrScale().x-lowestScale) / rangeScale) *
             (HighPointY - LowPointY) + LowPointY;
@@ -39,5 +47,10 @@ public class BarPointer : MonoBehaviour
         
         currVector.y = currPointY;
         this.transform.localPosition = currVector;
+    }
+
+    private void pausePointer()
+    {
+        pause = true;
     }
 }

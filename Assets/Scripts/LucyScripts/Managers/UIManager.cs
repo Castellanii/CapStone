@@ -14,12 +14,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] ChunkList chunkList;
 
-    [SerializeField] LivesCounter playerLives;
-    
     public static UIManager instance;
 
+    private bool pause;
 
-
+    public int currScore { get; private set; }
     void Singleton()
     {
         if (instance != null && instance != this)
@@ -39,13 +38,15 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         hamburgerUI.gameObject.GetComponent<Button>().onClick.AddListener(DisableHamburgerUI);
-        playerLives.OnDeath += OnDeath;
+        LivesCounter.Instance.OnDeath += OnDeath;
     }
 
     public void UpdateScoreUI(int score)
     {
         //Debug.Log("update score text: " + score);
+        if (pause) return;
         scoreTxt.text = $"SCORE: {score}";
+        currScore = score;
     }
 
     private void EnableHamburgerUI()
@@ -67,6 +68,8 @@ public class UIManager : MonoBehaviour
     void OnDeath()
     {
         Debug.Log($"Player is Dead");
+        pause = true;
+        //playerCondition.gameObject.SetActive(false);
         playerCondition.GetPlayerRenderer().enabled = false;
         //TODO add gameover screen
     }
