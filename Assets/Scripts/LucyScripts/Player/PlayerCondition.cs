@@ -31,6 +31,7 @@ public class PlayerCondition : MonoBehaviour
     private Material breakMaterial;
     private float timeDuration;
     public Action EnableHamburgerUI;
+    public Action UpdateCurrMaterial;
     private void OnEnable()
     {
         shapeShiftInteractor.ShapeChanged += UpdateCurrShape;
@@ -67,13 +68,14 @@ public class PlayerCondition : MonoBehaviour
 
         if (canBreak)
         {
-            
             playerRendererDic[poweredShape].materials = origMaterials;
             currShape = _currShape;
             UpdateHamburgerVar();
         }
         
         currShape = _currShape;
+        //Order can't change for the following
+        UpdateCurrMaterial?.Invoke();
 
     }
 
@@ -137,7 +139,7 @@ public class PlayerCondition : MonoBehaviour
         yield return new WaitForSeconds(timeDuration);
         
         isRunning = false;
-        Debug.Log("revertMaterial");
+        //Debug.Log("revertMaterial");
         playerRendererDic[poweredShape].materials = origMaterials;
         SetBreakable(false);
 

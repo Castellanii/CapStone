@@ -23,7 +23,7 @@ public class BreakableWall : MonoBehaviour
         {
             playerCondition.Exhausted = false;
 
-            Debug.Log("breakable: " + playerCondition.canBreak);
+            //Debug.Log("breakable: " + playerCondition.canBreak);
             if (playerCondition.canBreak)
             {
                 Debug.Log($"Wall is breaking");
@@ -35,6 +35,7 @@ public class BreakableWall : MonoBehaviour
             {
                 Debug.Log("Player is damaged by the breaking wall");
                 LivesCounter.Instance.LoseLife();
+                Destroy(this.gameObject);
             }
             
         }

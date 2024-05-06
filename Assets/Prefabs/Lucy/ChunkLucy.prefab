@@ -5035,7 +5035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakMaterial: {fileID: 2100000, guid: 95554732369047d489dd56fffad64156, type: 2}
-  materialDuration: 2
+  materialDuration: 1
 --- !u!65 &12439915791189987
 BoxCollider:
   m_ObjectHideFlags: 0
