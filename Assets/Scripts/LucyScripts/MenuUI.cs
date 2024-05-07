@@ -10,7 +10,7 @@ public class MenuUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI ScoreTxt;
     [SerializeField] Transform EndUI;
     [SerializeField] Transform InstructionUI;
-    [SerializeField] Menu menu;
+    [SerializeField] MenuInteractor menu;
 
     public static MenuUI Instance;
 
@@ -25,9 +25,11 @@ public class MenuUI : MonoBehaviour
     private void Awake()
     {
         Singleton();
-        if (PlayerPrefs.GetInt("gameStatus") == (int)GameStatus.StartGame) return;
-        if (PlayerPrefs.GetInt("gameStatus") == (int)GameStatus.GameExit) return;
-        EnableEndUI();
+        
+    }
+    private void Start()
+    {
+        
     }
 
     public void EnableEndUI()
