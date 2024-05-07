@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         PlayerPrefs.SetInt("gameStatus", (int)GameStatus.StartGame);
-        SceneChanger.instance.ChangeScene("FinalScene");
+        SceneChanger.instance.ChangeScene("Final");
         
 
     }

@@ -59,10 +59,11 @@ public class AudioManager : MonoBehaviour
     {
         if (source != null)
         {
-            Debug.Log(source.volume);
+            Debug.Log("Start" + source.volume);
+            Debug.Log("multiplier" + volumeMultiplier);
             source.time = startTime;
             source.volume *= volumeMultiplier;
-            Debug.Log(source.volume);
+            Debug.Log("end" + source.volume);
             source.Play();
             StartCoroutine(StopAudioAfterDuration(source, duration));
         }

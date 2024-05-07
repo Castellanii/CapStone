@@ -2,15 +2,19 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
 public class MenuUI : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI ScoreTxt;
+    [SerializeField] Text ScoreTxt;
     [SerializeField] Transform EndUI;
     [SerializeField] Transform InstructionUI;
     [SerializeField] MenuInteractor menu;
+
+    [SerializeField] public GameObject UIPanel;
+    [SerializeField] public Text UIText;
 
     public static MenuUI Instance;
 
@@ -25,10 +29,6 @@ public class MenuUI : MonoBehaviour
     private void Awake()
     {
         Singleton();
-        
-    }
-    private void Start()
-    {
         
     }
 
