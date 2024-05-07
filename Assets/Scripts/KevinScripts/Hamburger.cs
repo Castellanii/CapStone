@@ -32,7 +32,7 @@ public class Hamburger : MonoBehaviour, IPickable
             //playerCondition.SetBreakable(true, materialDuration);
 
             //Invoke("RevertMaterial", materialDuration);
-
+            AudioManager.instance.PlayAudio(2);
             playerCondition.HitHamburgerPickUp(breakMaterial, materialDuration);
             Destroy(this.gameObject);
         }

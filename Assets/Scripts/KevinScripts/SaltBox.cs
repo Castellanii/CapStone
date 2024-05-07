@@ -11,7 +11,7 @@ public class SaltBox : MonoBehaviour, IPickable
         if (other.CompareTag("Player"))
         {
             //Debug.Log($"Collided");
-            
+            AudioManager.instance.PlayAudioForDuration(AudioManager.instance.sources[1], 0.6f);
             DecreaseScale();
             Destroy(this.gameObject);
         }

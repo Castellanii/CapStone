@@ -8,6 +8,7 @@ public class BreakableWall : MonoBehaviour
     private Animator wallAnimation;
     [SerializeField] private Collider wallCollider;
     private PlayerCondition playerCondition;
+    private AudioManager audioManager;
     
 
     private void Awake()
@@ -27,12 +28,14 @@ public class BreakableWall : MonoBehaviour
             if (playerCondition.canBreak)
             {
                 Debug.Log($"Wall is breaking");
+                AudioManager.instance.PlayAudioForDuration(AudioManager.instance.sources[3], 0.6f);
                 wallAnimation.SetTrigger("Breaking");
                 wallCollider.enabled = false;
                 Destroy(this.gameObject, 2.0f);
             }
             else
             {
+                AudioManager.instance.PlayAudio(4);
                 Debug.Log("Player is damaged by the breaking wall");
                 LivesCounter.Instance.LoseLife();
                 Destroy(this.gameObject);

@@ -29,7 +29,7 @@ public class Coin : MonoBehaviour
         {
             //Debug.Log("collect coin");
             ScoreManager.instance.AddScore(coinValue);
-            AudioManager.instance.PlayCollectCoinAudio();
+            AudioManager.instance.PlayAudio(0);
 
 
             Destroy(this.gameObject);

@@ -27,13 +27,14 @@ public class ShapeShiftWall : MonoBehaviour
             if (playerCondition.currShape == TargetShape)
             {
                 //ToDo pass through wall
+                AudioManager.instance.PlayAudioForDuration(AudioManager.instance.sources[5], 1.5f, 0.3f, 100);
                 Debug.Log($"You passed through the {TargetShape.ToString()} with {playerCondition.currShape.ToString()}");
                 Destroy(this.gameObject);
             }
             else
             {
                 Debug.Log($"You failed passed through the {TargetShape.ToString()} with {playerCondition.currShape.ToString()}");
-                
+                AudioManager.instance.PlayAudio(4);
                 LivesCounter.Instance.LoseLife();
                 Destroy(this.gameObject);
 

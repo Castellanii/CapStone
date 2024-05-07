@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.instance.PlayAudio(4);
             Debug.Log("obstacle(tree) hit the player");
             LivesCounter.Instance.LoseLife();
             Destroy(this.gameObject);

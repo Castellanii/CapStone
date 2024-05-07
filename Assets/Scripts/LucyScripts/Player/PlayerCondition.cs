@@ -99,7 +99,7 @@ public class PlayerCondition : MonoBehaviour
         if (!isRunning)
         {
             UpdateHamburgerVar();
-
+            AudioManager.instance.PlayAudioForDuration(AudioManager.instance.sources[1], 0.6f);
             SetBreakable(true);
             revertMaterial = StartCoroutine(RevertMaterial(timeDuration));
             //Invoke("RevertMaterial", timeDuration);   
