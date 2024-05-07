@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class Battery : MonoBehaviour, IButton
+public class Battery : ButtonObject
 {
     private Vector3 origSize;
     private float scaleChange = 1.2f;
@@ -9,28 +9,28 @@ public class Battery : MonoBehaviour, IButton
     private void Awake()
     {
         origSize = transform.localScale;
+        Name = "Start Game";
     }
 
-    public void OnClickEnter()
+    public override void OnClickEnter()
     {
+        base.OnClickEnter();
         // The mouse clicked on this object
         //Debug.Log("Mouse clicked on Battery!");
-
         GameManager.Instance.StartGame();
     }
-    public void OnHoverEnter()
+
+    public override void OnHoverEnter()
     {
+        base.OnHoverEnter();
         //Debug.Log("Mouse hovered on Battery!");
-
         transform.localScale = origSize * scaleChange;
-
     }
 
-    public void OnHoverExit()
+    public override void OnHoverExit()
     {
+        base.OnHoverExit();
         //Debug.Log("Mouse hoveredEXIT on Battery!");
         transform.localScale = origSize;
     }
-
-
 }

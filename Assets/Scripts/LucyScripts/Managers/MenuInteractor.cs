@@ -8,7 +8,7 @@ public class MenuInteractor : MonoBehaviour
     private bool isHover;
     private bool isClicked;
 
-    private IButton lastButton;
+    private ButtonObject lastButton;
     private bool isEnabled;
 
     public static MenuInteractor Instance;
@@ -28,7 +28,7 @@ public class MenuInteractor : MonoBehaviour
 
     public void SetEnabled(bool _value)
     {
-        //Debug.Log($"set enabled : {_value}");
+        //ebug.Log($"set enabled : {_value}");
         isEnabled = _value;
     }
 
@@ -53,7 +53,7 @@ public class MenuInteractor : MonoBehaviour
             // Check if the hit object has a collider
             if (hit.collider != null)
             {
-                IButton button = hit.collider.gameObject.GetComponent<IButton>();
+                ButtonObject button = hit.collider.gameObject.GetComponent<ButtonObject>();
                 // Check if the hit object is the object you're interested in
                 if (button != null)
                 {

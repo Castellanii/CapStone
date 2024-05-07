@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //TODO: after hamburger is made, connect event to EnableScoreUI
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI scoreTxt;
+    [SerializeField] Text scoreTxt;
 
     [SerializeField] Transform hamburgerUI;
 

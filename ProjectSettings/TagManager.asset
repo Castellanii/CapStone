@@ -11,6 +11,7 @@ TagManager:
   - Obstacles
   - Curve
   - PlayerMain
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Title
   - 
   - 
   - 
@@ -47,4 +48,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Title
+    uniqueID: 29092215
     locked: 0
