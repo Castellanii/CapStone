@@ -7,6 +7,7 @@ public class Book : MonoBehaviour, IButton
     private float scaleChange = 1.2f;
 
     [SerializeField] MenuUI menuUI;
+    [SerializeField] MenuInteractor menu;
     private void Awake()
     {
         origSize = transform.localScale;
@@ -16,8 +17,9 @@ public class Book : MonoBehaviour, IButton
     {
         // The mouse clicked on this object
         //Debug.Log("Mouse clicked on Book!");
-
+        menu.SetEnabled(false);
         menuUI.EnableInstructionUI();
+        
     }
     public void OnHoverEnter()
     {
