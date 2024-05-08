@@ -37,13 +37,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if(PlayerPrefs.HasKey("gameStatus") == false)
+        {
+            return;
+        }
         if (PlayerPrefs.GetInt("gameStatus") == (int)GameStatus.GameExit)
         {
             PlayerPrefs.SetInt("gameStatus", (int)GameStatus.GameEnter);
             if (MenuInteractor.Instance != null) {
                 MenuInteractor.Instance.SetEnabled(true);
             }
-            
             return;
         }
         if (PlayerPrefs.GetInt("gameStatus") == (int)GameStatus.StartGame) return;
