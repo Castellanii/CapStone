@@ -52,6 +52,7 @@ public class PlayerJump : MonoBehaviour
         animated = true;
     }
 
+
     public void Jump()
     {
         if (!isGrounded) return;
@@ -68,8 +69,19 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckDistance, groundMask);
+        if (PlayerInput.GetInstance().jumpPressed)
+        {
+            Jump();
+        }
 
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckDistance, groundMask);
+        UpdateAnimation();
+        
+
+    }
+
+    private void UpdateAnimation()
+    {
         if (!animated) return;
 
         if (isGrounded)
@@ -79,7 +91,7 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
-            
+
             animators[animatorIndex].SetBool("IsGrounded", false);
         }
     }
