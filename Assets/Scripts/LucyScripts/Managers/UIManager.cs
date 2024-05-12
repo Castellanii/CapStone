@@ -57,12 +57,17 @@ public class UIManager : MonoBehaviour
 
     public void DisableHamburgerUI()
     {
+        if (!HamburgerUI()) return;
         hamburgerUI.transform.GetComponent<Button>().interactable = false;
         hamburgerUI.gameObject.SetActive(false);
         //Debug.Log("activate hamburger mode");
         playerCondition.ActivateHamburgerMode();
         chunkList.HamburgerSpawned(false);
 
+    }
+    public bool HamburgerUI()
+    {
+        return hamburgerUI.gameObject.activeSelf;
     }
 
     void OnDeath()
@@ -74,6 +79,12 @@ public class UIManager : MonoBehaviour
         //TODO add gameover screen
     }
 
-
+    private void Update()
+    {
+        if (PlayerInput.GetInstance().activatePressed)
+        {
+            DisableHamburgerUI();
+        }
+    }
 
 }
