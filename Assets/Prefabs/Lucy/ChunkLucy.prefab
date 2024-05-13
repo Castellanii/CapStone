@@ -5737,21 +5737,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3025084643276665170, guid: 3a9c0cc7394e8ce4593962aa726d41ad,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 3025084643276665170, guid: 3a9c0cc7394e8ce4593962aa726d41ad,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 3025084643276665170, guid: 3a9c0cc7394e8ce4593962aa726d41ad,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 3025084643276665170, guid: 3a9c0cc7394e8ce4593962aa726d41ad,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.978
       objectReference: {fileID: 0}
@@ -5800,20 +5785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3025084643276665170, guid: 3a9c0cc7394e8ce4593962aa726d41ad,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9175963461661745807, guid: 3a9c0cc7394e8ce4593962aa726d41ad,
         type: 3}
       propertyPath: m_Name
       value: Patrick(Pickup)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9175963461661745807, guid: 3a9c0cc7394e8ce4593962aa726d41ad,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

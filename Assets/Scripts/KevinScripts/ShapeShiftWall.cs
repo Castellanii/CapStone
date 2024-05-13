@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShapeShiftWall : MonoBehaviour
 {
     private Collider wallCollider;
-    private Shape TargetShape;
+    private Shape TargetShape = Shape.Patrick;
 
     private PlayerCondition playerCondition;
     private void Awake()
