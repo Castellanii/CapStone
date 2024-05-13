@@ -22,22 +22,17 @@ public class PlayerPosition : MonoBehaviour
 
     private void Update()
     {
-        float horizontal = PlayerInput.GetInstance().horizontal;
-        
-        if (horizontal != 0)
+       
+        if (PlayerInput.GetInstance().left)
         {
-            if (horizontal > 0)
-            {
-                Debug.Log("right");
-                ChangePosition(1);
-            }
-            else
-            {
-                Debug.Log("left");
-                ChangePosition(-1);
-            }
-            
+            ChangePosition(-1);
         }
+        else if (PlayerInput.GetInstance().right)
+        {
+            ChangePosition(1);
+        }
+
+
     }
     /// <summary>
     /// -1: left, 1: right
@@ -50,12 +45,12 @@ public class PlayerPosition : MonoBehaviour
         if (currPosIndex == 2 && value == 1) return;
         
 
-        if (moveCoroutine != null)
-        {
-            StopCoroutine(MoveToPosition(oldValue));
-            Debug.Log($"stop the previous and move to {value + oldPosIndex}");
-            transform.position = new Vector3(Positions[value + oldPosIndex], 0, 0);
-        }
+        //if (moveCoroutine != null)
+        //{
+        //    StopCoroutine(MoveToPosition(oldValue));
+        //    Debug.Log($"stop the previous and move to {value + oldPosIndex}");
+        //    transform.position = new Vector3(Positions[value + oldPosIndex], 0, 0);
+        //}
         moveCoroutine = StartCoroutine(MoveToPosition(value));
         
 

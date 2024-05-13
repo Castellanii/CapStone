@@ -5,9 +5,8 @@ using UnityEngine;
 [DefaultExecutionOrder(-100)]
 public class PlayerInput : MonoBehaviour
 {
-    public float horizontal { get; private set; }
-
-
+    public bool left { get; private set; }
+    public bool right { get; private set; }
     public bool jumpPressed { get; private set; }
     public bool activatePressed { get; private set; }
 
@@ -58,13 +57,20 @@ private void Awake()
 
     void ProcessInputs()
     {
-        if (Input.GetButtonDown("Horizontal"))
+
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            horizontal = Input.GetAxis("Horizontal");
+            left = true;
         }
-        
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            right = true;
+        }
+
+
+
         //Debug.Log("horizontal" + horizontal);
-   
+
         jumpPressed = jumpPressed || Input.GetButtonDown("Jump");
 
         //Debug.Log("jumpPressed" + jumpPressed);
@@ -80,7 +86,8 @@ private void Awake()
     void ClearInputs()
     {
         if (!clear) return;
-        horizontal = 0;
+        left = false;
+        right = false;
 
         jumpPressed = false;
 
